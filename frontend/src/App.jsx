@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import {
   ArrowDownRight, ArrowRight, ArrowUpRight, Atom, BarChart3,
-  CheckCircle2, ChevronDown, Code2, GraduationCap, Globe2, Layers3,
+  CheckCircle2, ChevronDown, Code2, GraduationCap, Globe2, Instagram, Layers3,
   Mail, Menu, Network, ShieldCheck, ShoppingBag,
   Sparkles, Target, X, Zap
 } from 'lucide-react';
 import logoIcon from './assets/logo-icon.png';
+
+// Quick contact and social links
+export const WHATSAPP_NUMBER = '9922953623';
+export const WHATSAPP_URL = `https://wa.me/91${WHATSAPP_NUMBER}`;
+// Instagram link placeholder - update with official handle when available
+export const INSTAGRAM_URL = 'https://instagram.com/';
 
 const businesses = [
   { id: 'multimedia', number: '01', name: 'SW Multimedia', category: 'LEARNING & EDUCATION', description: 'Learning experiences designed to help people build skills, explore new ideas and move forward with confidence.', icon: GraduationCap, url: import.meta.env.VITE_MULTIMEDIA_URL || 'https://sw-portfolio-five.vercel.app/', accent: 'accent-cyan', tags: ['Learning', 'Training', 'Admissions'] },
@@ -299,10 +305,148 @@ function Contact() {
   return <section className="contact-section section" id="contact"><div className="container contact-grid"><div className="contact-copy"><div className="eyebrow light"><span className="eyebrow-dot"/> START A CONVERSATION</div><h2>Good things<br/>start with <span>hello.</span></h2><p>Have a question about SW Venture or one of our businesses? Send a note and tell us what you have in mind.</p><a className="contact-email" href="mailto:hello@swventure.in"><span><Mail size={18}/></span> hello@swventure.in <ArrowUpRight size={16}/></a><div className="contact-visual"><div className="visual-ring ring-a"/><div className="visual-ring ring-b"/><div className="visual-center"><Atom size={34}/></div><span className="visual-label label-a">Ideas</span><span className="visual-label label-b">People</span><span className="visual-label label-c">Possibility</span></div></div><form className="contact-form" onSubmit={submit}><div className="form-heading"><span>CONTACT FORM</span><small>Fields marked * are required</small></div><label htmlFor="name">Your name *</label><input id="name" name="name" value={form.name} onChange={update} required minLength="2" maxLength="100" placeholder="How should we address you?" autoComplete="name"/><label htmlFor="email">Email address *</label><input id="email" name="email" type="email" value={form.email} onChange={update} required maxLength="254" placeholder="you@example.com" autoComplete="email"/><label htmlFor="business">What is this about?</label><div className="select-wrap"><select id="business" name="business" value={form.business} onChange={update}><option>General enquiry</option><option>SW Multimedia</option><option>SW Digital Hub</option><option>SW Meritx</option><option>SW Hub</option><option>Partnership</option></select><ChevronDown size={16}/></div><label htmlFor="message">Your message *</label><textarea id="message" name="message" value={form.message} onChange={update} required minLength="10" maxLength="3000" rows="4" placeholder="Tell us a little about what you need…"/><button className="button button-lime submit-button" type="submit" disabled={sending}>{sending ? 'Sending message…' : 'Send your message'} <ArrowRight size={17}/></button>{status.message && <div className={`form-status ${status.type}`} role="status">{status.type === 'success' ? <CheckCircle2 size={17}/> : <ShieldCheck size={17}/>}<span>{status.message}</span></div>}<p className="privacy-note"><ShieldCheck size={14}/> Your details are used to respond to this enquiry.</p></form></div></section>;
 }
 
+function WhatsAppIcon({ size = 26, className = '' }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  );
+}
+
+function FloatingSocialDock() {
+  return (
+    <aside className="floating-social-dock" aria-label="Social and messaging links">
+      <a
+        href={INSTAGRAM_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="floating-social-btn instagram"
+        aria-label="Follow us on Instagram"
+      >
+        <span className="social-tooltip">Instagram</span>
+        <Instagram size={24} />
+      </a>
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="floating-social-btn whatsapp"
+        aria-label={`Chat on WhatsApp (+91 ${WHATSAPP_NUMBER})`}
+      >
+        <span className="social-tooltip">Chat on WhatsApp</span>
+        <WhatsAppIcon size={26} />
+      </a>
+    </aside>
+  );
+}
+
 function Footer() {
-  return <footer className="footer"><div className="container footer-main"><div><Brand/><p className="footer-tagline">A connected group of businesses,<br/>moving forward with purpose.</p></div><div className="footer-links"><div><b>EXPLORE</b><a href="#businesses">Our businesses</a><a href="#vision">Our vision</a><a href="#about">About us</a><a href="#approach">Our approach</a></div><div><b>BUSINESSES</b>{businesses.map(b => <a key={b.id} href={b.url} target="_blank" rel="noreferrer">{b.name} <ArrowUpRight size={12}/></a>)}</div><div><b>GET IN TOUCH</b><a href="#contact">Contact us</a><a href="mailto:hello@swventure.in">hello@swventure.in</a><span className="domain-label"><Globe2 size={13}/> swventure.in</span></div></div></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} SW Venture. All rights reserved.</span><div><a href="#privacy" onClick={e => { e.preventDefault(); window.alert('Privacy notice: enquiry details are collected only to respond to your message. A full legal privacy policy should be reviewed and published before production launch.'); }}>Privacy</a><a href="#terms" onClick={e => { e.preventDefault(); window.alert('Terms of use: this parent website introduces SW Venture and its associated businesses. Please publish owner-approved legal terms before production launch.'); }}>Terms</a></div><a href="#home" className="back-top">BACK TO TOP ↑</a></div></footer>;
+  return (
+    <footer className="footer">
+      <div className="container footer-main">
+        <div>
+          <Brand />
+          <p className="footer-tagline">
+            A connected group of businesses,<br />
+            moving forward with purpose.
+          </p>
+        </div>
+        <div className="footer-links">
+          <div>
+            <b>EXPLORE</b>
+            <a href="#businesses">Our businesses</a>
+            <a href="#vision">Our vision</a>
+            <a href="#about">About us</a>
+            <a href="#approach">Our approach</a>
+          </div>
+          <div>
+            <b>BUSINESSES</b>
+            {businesses.map((b) => (
+              <a key={b.id} href={b.url} target="_blank" rel="noreferrer">
+                {b.name} <ArrowUpRight size={12} />
+              </a>
+            ))}
+          </div>
+          <div>
+            <b>GET IN TOUCH</b>
+            <a href="#contact">Contact us</a>
+            <a href="mailto:hello@swventure.in">hello@swventure.in</a>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-link"
+            >
+              <WhatsAppIcon size={14} /> WhatsApp: {WHATSAPP_NUMBER}
+            </a>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-link"
+            >
+              <Instagram size={14} /> Instagram
+            </a>
+            <span className="domain-label">
+              <Globe2 size={13} /> swventure.in
+            </span>
+          </div>
+        </div>
+      </div>
+      <div className="container footer-bottom">
+        <span>© {new Date().getFullYear()} SW Venture. All rights reserved.</span>
+        <div>
+          <a
+            href="#privacy"
+            onClick={(e) => {
+              e.preventDefault();
+              window.alert(
+                'Privacy notice: enquiry details are collected only to respond to your message. A full legal privacy policy should be reviewed and published before production launch.'
+              );
+            }}
+          >
+            Privacy
+          </a>
+          <a
+            href="#terms"
+            onClick={(e) => {
+              e.preventDefault();
+              window.alert(
+                'Terms of use: this parent website introduces SW Venture and its associated businesses. Please publish owner-approved legal terms before production launch.'
+              );
+            }}
+          >
+            Terms
+          </a>
+        </div>
+        <a href="#home" className="back-top">
+          BACK TO TOP ↑
+        </a>
+      </div>
+    </footer>
+  );
 }
 
 export default function App() {
-  return <><Header/><main><Hero/><VisionSection/><Intro/><Approach/><Contact/></main><Footer/></>;
+  return (
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <VisionSection />
+        <Intro />
+        <Approach />
+        <Contact />
+      </main>
+      <Footer />
+      <FloatingSocialDock />
+    </>
+  );
 }

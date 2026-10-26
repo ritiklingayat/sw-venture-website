@@ -2069,6 +2069,150 @@ span {
 }
 
 /* ==========================================================================
+   Floating Social Action Dock (Right Side: WhatsApp & Instagram)
+   ========================================================================== */
+.floating-social-dock {
+  position: fixed;
+  right: 24px;
+  bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+  z-index: 34; /* Floats above content, below mobile drawer backdrop (z-index: 35) */
+}
+
+.floating-social-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  user-select: none;
+}
+
+.floating-social-btn.whatsapp {
+  background: #25D366;
+  background: linear-gradient(135deg, #2ae770 0%, #1eb956 100%);
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.42), 0 2px 6px rgba(0, 0, 0, 0.15);
+  animation: whatsapp-glow 3s infinite ease-in-out;
+}
+
+.floating-social-btn.whatsapp:hover {
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.6), 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: none;
+}
+
+.floating-social-btn.instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(214, 36, 159, 0.38), 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.floating-social-btn.instagram:hover {
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 10px 28px rgba(214, 36, 159, 0.55), 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.floating-social-btn:focus-visible {
+  outline: 3px solid #00FFFF;
+  outline-offset: 3px;
+}
+
+.floating-social-btn .social-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  background: #08101E;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: var(--display);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.floating-social-btn .social-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%);
+  border-width: 5px 0 5px 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #08101E;
+}
+
+.floating-social-btn:hover .social-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+@keyframes whatsapp-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5), 0 6px 20px rgba(37, 211, 102, 0.42);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0), 0 6px 20px rgba(37, 211, 102, 0.42);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 6px 20px rgba(37, 211, 102, 0.42);
+  }
+}
+
+/* Hide floating dock when mobile navigation menu is opened */
+body.nav-open-lock .floating-social-dock {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.9);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+@media (max-width: 600px) {
+  .floating-social-dock {
+    right: 16px;
+    bottom: 20px;
+    gap: 10px;
+  }
+
+  .floating-social-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .floating-social-btn .social-tooltip {
+    display: none;
+  }
+}
+
+/* Footer social links */
+.footer-social-link {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-social-link:hover {
+  color: var(--accent) !important;
+}
+
+/* ==========================================================================
    Reduced Motion
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
@@ -2080,3 +2224,4 @@ span {
     animation: none !important;
   }
 }
+
