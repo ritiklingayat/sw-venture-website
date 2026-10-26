@@ -160,7 +160,10 @@ function Hero() {
                 }}
               >
                 <div className="card-top">
-                  <span className="card-number">{b.number} / 04</span>
+                  <div className="card-brand-badge">
+                    <img src={logoIcon} alt="SW Venture" className="card-main-symbol" />
+                    <span className="card-number">{b.number} / 04</span>
+                  </div>
                   <a
                     href={b.url}
                     target="_blank"
