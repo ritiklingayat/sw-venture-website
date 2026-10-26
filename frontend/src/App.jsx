@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   ArrowDownRight, ArrowRight, ArrowUpRight, Atom, BarChart3,
   CheckCircle2, ChevronDown, Code2, GraduationCap, Globe2, Layers3,
@@ -35,8 +35,83 @@ function Brand({ onClick }) {
 
 function Header() {
   const [open, setOpen] = useState(false);
-  const links = [['Businesses', '#businesses'], ['Vision', '#vision'], ['About', '#about'], ['Our approach', '#approach'], ['Contact', '#contact']];
-  return <header className="header"><div className="container nav-wrap"><Brand onClick={() => setOpen(false)} /><nav className={open ? 'nav nav-open' : 'nav'} aria-label="Main navigation">{links.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>)}<a className="nav-cta" href="#businesses" onClick={() => setOpen(false)}>Explore the group <ArrowUpRight size={15}/></a></nav><button className="menu-toggle" onClick={() => setOpen(!open)} aria-label={open ? 'Close menu' : 'Open menu'}>{open ? <X/> : <Menu/>}</button></div></header>;
+  const links = [
+    ['Businesses', '#businesses'],
+    ['Vision', '#vision'],
+    ['About', '#about'],
+    ['Our approach', '#approach'],
+    ['Contact', '#contact']
+  ];
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth > 768 && open) {
+        setOpen(false);
+      }
+    }
+    function handleKeyDown(e) {
+      if (e.key === 'Escape' && open) {
+        setOpen(false);
+      }
+    }
+
+    if (open) {
+      document.body.classList.add('nav-open-lock');
+    } else {
+      document.body.classList.remove('nav-open-lock');
+    }
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.classList.remove('nav-open-lock');
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [open]);
+
+  return (
+    <>
+      <header className="header">
+        <div className="container nav-wrap">
+          <Brand onClick={() => setOpen(false)} />
+          <nav
+            id="main-nav"
+            className={open ? 'nav nav-open' : 'nav'}
+            aria-label="Main navigation"
+          >
+            {links.map(([label, href]) => (
+              <a key={href} href={href} onClick={() => setOpen(false)}>
+                {label}
+              </a>
+            ))}
+            <a
+              className="nav-cta"
+              href="#businesses"
+              onClick={() => setOpen(false)}
+            >
+              Explore the group <ArrowUpRight size={15} />
+            </a>
+          </nav>
+          <button
+            type="button"
+            className="menu-toggle"
+            onClick={() => setOpen(!open)}
+            aria-expanded={open}
+            aria-controls="main-nav"
+            aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
+          >
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </header>
+      <div
+        className={`nav-backdrop ${open ? 'nav-backdrop-open' : ''}`}
+        onClick={() => setOpen(false)}
+        aria-hidden="true"
+      />
+    </>
+  );
 }
 
 function Hero() {
