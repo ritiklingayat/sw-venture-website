@@ -92,7 +92,7 @@ export function HomePage({ onOpenConsultation }) {
           <div className="hero-copy-column">
             <div className="hero-eyebrow-badge">
               <span className="pulsing-dot" />
-              <span>OFFICIAL CORPORATE PLATFORM • SW DIGITAL HUB</span>
+              <span>OFFICIAL CORPORATE PLATFORM</span>
             </div>
 
             <h1 className="hero-headline">
@@ -112,21 +112,6 @@ export function HomePage({ onOpenConsultation }) {
               <Link to="/services" className="btn-secondary">
                 Explore Our Services
               </Link>
-            </div>
-
-            <div className="hero-trust-strip">
-              <div className="trust-pill">
-                <CheckCircle2 size={15} className="text-cyan" />
-                <span>Complete In-House Execution</span>
-              </div>
-              <div className="trust-pill">
-                <CheckCircle2 size={15} className="text-cyan" />
-                <span>Strategy Before Execution</span>
-              </div>
-              <div className="trust-pill">
-                <CheckCircle2 size={15} className="text-cyan" />
-                <span>Verifiable Business Growth</span>
-              </div>
             </div>
           </div>
 
@@ -177,6 +162,21 @@ export function HomePage({ onOpenConsultation }) {
                   <p>Inquiries routed directly to dedicated account managers with WhatsApp sync.</p>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div className="hero-trust-strip">
+            <div className="trust-pill">
+              <CheckCircle2 size={15} className="text-cyan" />
+              <span>Complete In-House Execution</span>
+            </div>
+            <div className="trust-pill">
+              <CheckCircle2 size={15} className="text-cyan" />
+              <span>Strategy Before Execution</span>
+            </div>
+            <div className="trust-pill">
+              <CheckCircle2 size={15} className="text-cyan" />
+              <span>Verifiable Business Growth</span>
             </div>
           </div>
         </div>
