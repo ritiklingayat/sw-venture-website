@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from '../router';
 import logoIcon from '../assets/logo-icon.png';
+import { WhatsAppIcon } from './WhatsAppIcon';
 import {
   MapPin,
   Phone,
@@ -80,6 +81,15 @@ export function Footer() {
 
             {/* Social Icons */}
             <div className="footer-socials">
+              <a
+                href="https://wa.me/919112166105?text=Hello%20SW%20Digital%20Hub,%20I%20would%20like%20to%20connect%20with%20your%20team."
+                target="_blank"
+                rel="noreferrer"
+                aria-label="WhatsApp"
+                title="Chat on WhatsApp"
+              >
+                <WhatsAppIcon size={18} />
+              </a>
               <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
                 <Instagram size={18} />
               </a>

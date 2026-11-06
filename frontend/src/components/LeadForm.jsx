@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { CheckCircle2, ShieldCheck, ArrowRight, MessageCircle, AlertCircle } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
+import { CheckCircle2, ShieldCheck, ArrowRight, AlertCircle } from 'lucide-react';
 
 export function LeadForm({ defaultService = 'Website Development', formTitle = 'Request a Project Proposal', formSub = 'Fill in your requirements to receive a customized scope, timeline, and quote.' }) {
   const [formData, setFormData] = useState({
@@ -81,7 +82,7 @@ export function LeadForm({ defaultService = 'Website Development', formTitle = '
             rel="noreferrer"
             className="btn-whatsapp"
           >
-            <MessageCircle size={18} /> Speed Up Review on WhatsApp
+            <WhatsAppIcon size={18} /> Speed Up Review on WhatsApp
           </a>
           <button
             className="btn-secondary"

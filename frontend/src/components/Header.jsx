@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link, useRouter } from '../router';
 import { serviceCategories } from '../data/servicesData';
 import logoIcon from '../assets/logo-icon.png';
+import { WhatsAppIcon } from './WhatsAppIcon';
 import {
   ChevronDown,
   Menu,
   X,
   PhoneCall,
-  MessageCircle,
   ArrowRight,
   Code2,
   TrendingUp,
@@ -69,7 +69,7 @@ export function Header({ onOpenConsultation }) {
               rel="noreferrer"
               className="microbar-whatsapp"
             >
-              <MessageCircle size={12} /> WhatsApp Inquiry
+              <WhatsAppIcon size={13} /> WhatsApp Inquiry
             </a>
           </div>
         </div>
@@ -295,7 +295,7 @@ export function Header({ onOpenConsultation }) {
                 rel="noreferrer"
                 className="btn-whatsapp w-full"
               >
-                <MessageCircle size={18} /> WhatsApp: +91 91121 66105
+                <WhatsAppIcon size={18} /> WhatsApp: +91 91121 66105
               </a>
             </div>
           </div>

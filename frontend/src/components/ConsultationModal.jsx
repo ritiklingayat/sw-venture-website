@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { X, Calendar, Clock, CheckCircle2, ShieldCheck, ArrowRight, MessageCircle } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
+import { X, Calendar, Clock, CheckCircle2, ShieldCheck, ArrowRight } from 'lucide-react';
 
 export function ConsultationModal({ isOpen, onClose, initialService = 'Digital Growth Strategy' }) {
   const [formData, setFormData] = useState({
@@ -208,7 +209,7 @@ export function ConsultationModal({ isOpen, onClose, initialService = 'Digital G
                 rel="noreferrer"
                 className="btn-whatsapp"
               >
-                <MessageCircle size={18} /> Connect on WhatsApp Now
+                <WhatsAppIcon size={18} /> Connect on WhatsApp Now
               </a>
               <button className="btn-secondary" onClick={onClose}>
                 Close Window

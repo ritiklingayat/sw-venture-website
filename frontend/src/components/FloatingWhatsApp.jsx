@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 export function FloatingWhatsApp() {
   const phoneNumber = '919112166105';
@@ -16,7 +16,7 @@ export function FloatingWhatsApp() {
         aria-label="Chat on WhatsApp with SW Digital Hub"
       >
         <span className="whatsapp-pulse" />
-        <MessageCircle size={28} />
+        <WhatsAppIcon size={28} />
         <span className="whatsapp-tooltip">Chat with us on WhatsApp</span>
       </a>
     </aside>

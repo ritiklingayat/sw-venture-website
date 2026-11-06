@@ -1,6 +1,7 @@
 import React from 'react';
 import { LeadForm } from '../components/LeadForm';
-import { MapPin, Phone, Mail, Globe, MessageCircle, Clock, ShieldCheck } from 'lucide-react';
+import { WhatsAppIcon } from '../components/WhatsAppIcon';
+import { MapPin, Phone, Mail, Globe, Clock, ShieldCheck } from 'lucide-react';
 
 export function ContactPage() {
   return (
@@ -49,7 +50,7 @@ export function ContactPage() {
                 </div>
 
                 <div className="contact-detail-card">
-                  <div className="cdc-icon"><MessageCircle size={22} className="text-cyan" /></div>
+                  <div className="cdc-icon"><WhatsAppIcon size={22} className="text-cyan" /></div>
                   <div>
                     <strong>WhatsApp Support:</strong>
                     <p>

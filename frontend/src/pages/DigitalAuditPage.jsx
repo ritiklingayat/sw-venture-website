@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { CheckCircle2, ShieldCheck, ArrowRight, Search, FileText, TrendingUp, AlertCircle, MessageCircle } from 'lucide-react';
+import { WhatsAppIcon } from '../components/WhatsAppIcon';
+import { CheckCircle2, ShieldCheck, ArrowRight, Search, FileText, TrendingUp, AlertCircle } from 'lucide-react';
 
 export function DigitalAuditPage() {
   const [formData, setFormData] = useState({
@@ -268,7 +269,7 @@ export function DigitalAuditPage() {
                       rel="noreferrer"
                       className="btn-whatsapp"
                     >
-                      <MessageCircle size={18} /> Connect on WhatsApp
+                      <WhatsAppIcon size={18} /> Connect on WhatsApp
                     </a>
                   </div>
                 </div>

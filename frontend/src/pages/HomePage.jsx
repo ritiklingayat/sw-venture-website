@@ -5,6 +5,7 @@ import { portfolioProjects, portfolioCategories } from '../data/portfolioData';
 import { industries } from '../data/industriesData';
 import { testimonials } from '../data/testimonialsData';
 import { LeadForm } from '../components/LeadForm';
+import { WhatsAppIcon } from '../components/WhatsAppIcon';
 import {
   ArrowRight,
   ArrowUpRight,
@@ -703,7 +704,7 @@ export function HomePage({ onOpenConsultation }) {
 
               <div className="final-contact-points">
                 <div className="fcp-item">
-                  <MessageCircle size={22} className="text-cyan" />
+                  <WhatsAppIcon size={22} className="text-cyan" />
                   <div>
                     <strong>Instant WhatsApp Support</strong>
                     <a
