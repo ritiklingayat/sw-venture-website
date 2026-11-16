@@ -42,6 +42,8 @@ export function ConsultationModal({ isOpen, onClose, initialService = 'Digital G
         email: formData.email,
         phone: formData.phone,
         serviceRequired: formData.serviceRequired,
+        preferredDate: formData.preferredDate || 'Flexible',
+        preferredTime: formData.preferredTime || '10:00 AM - 12:00 PM',
         description: `Consultation Booking: Date: ${formData.preferredDate || 'Flexible'} | Time: ${formData.preferredTime}. Notes: ${formData.description}`,
         sourcePage: window.location.pathname,
         leadType: 'Consultation Booking',

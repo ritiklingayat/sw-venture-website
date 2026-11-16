@@ -8,7 +8,8 @@
     "dev": "concurrently -n api,web -c blue,green \"npm run dev -w backend\" \"npm run dev -w frontend\"",
     "build": "npm run build -w frontend",
     "start": "npm run start -w backend",
-    "check": "npm run check -w backend"
+    "check": "npm run check -w backend",
+    "check-db": "node -e \"import('./backend/src/contact-store.js').then(async m => { await m.initialiseStore(); const l = await m.getLeads(); console.log('\\n📊 Leads in Neon Database (' + l.length + ' total):'); console.table(l.slice(0, 10).map(r => ({ ID: r.leadNumber, Name: r.fullName, Email: r.email, Service: r.serviceRequired, Type: r.leadType, Status: r.status }))); await m.closeStore(); })\""
   },
   "devDependencies": { "concurrently": "^9.1.2" },
   "optionalDependencies": {

@@ -544,33 +544,44 @@ export function HomePage({ onOpenConsultation }) {
           </div>
 
           <div className="portfolio-grid">
-            {filteredPortfolio.map((project) => (
-              <article key={project.id} className="project-card">
-                <div className="project-card-top">
-                  <span className="project-category">{project.category}</span>
-                  <span className="project-industry">{project.industry}</span>
-                </div>
-                <h3>{project.title}</h3>
-                <p className="project-desc">{project.shortDesc}</p>
+            {filteredPortfolio.length === 0 ? (
+              <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '50px 20px', background: 'rgba(255, 255, 255, 0.02)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
+                <p style={{ color: '#94A3B8', fontSize: '14.5px', marginBottom: '14px' }}>
+                  Client case references for <strong>{selectedPortfolioCat}</strong> are available upon request.
+                </p>
+                <button className="btn-primary" onClick={() => onOpenConsultation && onOpenConsultation(`Portfolio Inquiry for ${selectedPortfolioCat}`)}>
+                  Request Case References
+                </button>
+              </div>
+            ) : (
+              filteredPortfolio.map((project) => (
+                <article key={project.id} className="project-card">
+                  <div className="project-card-top">
+                    <span className="project-category">{project.category}</span>
+                    <span className="project-industry">{project.industry}</span>
+                  </div>
+                  <h3>{project.title}</h3>
+                  <p className="project-desc">{project.shortDesc}</p>
 
-                <div className="project-metric-pill">
-                  <TrendingUp size={14} className="text-cyan" />
-                  <span>{project.metrics}</span>
-                </div>
+                  <div className="project-metric-pill">
+                    <TrendingUp size={14} className="text-cyan" />
+                    <span>{project.metrics}</span>
+                  </div>
 
-                <div className="project-tags">
-                  {project.tags.map((t, idx) => (
-                    <span key={idx}>{t}</span>
-                  ))}
-                </div>
+                  <div className="project-tags">
+                    {project.tags.map((t, idx) => (
+                      <span key={idx}>{t}</span>
+                    ))}
+                  </div>
 
-                <div className="project-card-footer">
-                  <Link to="/portfolio" className="btn-view-project">
-                    View Case Details <ArrowUpRight size={15} />
-                  </Link>
-                </div>
-              </article>
-            ))}
+                  <div className="project-card-footer">
+                    <Link to="/portfolio" className="btn-view-project">
+                      View Case Details <ArrowUpRight size={15} />
+                    </Link>
+                  </div>
+                </article>
+              ))
+            )}
           </div>
 
           <div className="text-center mt-40">

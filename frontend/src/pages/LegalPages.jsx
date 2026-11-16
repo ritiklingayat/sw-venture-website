@@ -52,7 +52,7 @@ export function LegalPages() {
               <br />
               <strong>SW Digital Hub Legal Desk</strong><br />
               Shop No. S-06, 2nd Floor, Khinvasara August Highstreet, Chh. Sambhajinagar – 431009<br />
-              Email: <a href="mailto:info@swdigitalhub.com">info@swdigitalhub.com</a>
+              Email: <a href="mailto:swdigitalhub25@gmail.com">swdigitalhub25@gmail.com</a>
             </p>
           </div>
         </section>
@@ -150,7 +150,7 @@ export function LegalPages() {
             <br />
             <strong>Privacy &amp; Grievance Officer — SW Digital Hub</strong><br />
             Address: Shop No. S-06, 2nd Floor, Khinvasara August Highstreet, Chh. Sambhajinagar – 431009, Maharashtra, India.<br />
-            Email: <a href="mailto:info@swdigitalhub.com">info@swdigitalhub.com</a>
+            Email: <a href="mailto:swdigitalhub25@gmail.com">swdigitalhub25@gmail.com</a>
           </p>
         </div>
       </section>

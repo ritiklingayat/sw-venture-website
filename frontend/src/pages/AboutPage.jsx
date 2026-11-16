@@ -137,7 +137,7 @@ export function AboutPage({ onOpenConsultation }) {
                 </div>
                 <div className="hq-detail">
                   <Mail size={20} className="text-blue" />
-                  <span>info@swdigitalhub.com</span>
+                  <a href="mailto:swdigitalhub25@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>swdigitalhub25@gmail.com</a>
                 </div>
               </div>
             </div>

@@ -70,7 +70,7 @@ export function ContactPage() {
                   <div className="cdc-icon"><Mail size={22} className="text-cyan" /></div>
                   <div>
                     <strong>Official Business Mailbox:</strong>
-                    <p><a href="mailto:info@swdigitalhub.com">info@swdigitalhub.com</a></p>
+                    <p><a href="mailto:swdigitalhub25@gmail.com">swdigitalhub25@gmail.com</a></p>
                   </div>
                 </div>
 

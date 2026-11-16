@@ -39,43 +39,57 @@ export function PortfolioPage({ onOpenConsultation }) {
 
           {/* Projects Grid */}
           <div className="portfolio-full-grid">
-            {filtered.map((item) => (
-              <article key={item.id} className="portfolio-card-detailed">
-                <div className="pcd-meta-row">
-                  <span className="pcd-cat">{item.category}</span>
-                  <span className="pcd-industry">{item.industry}</span>
-                </div>
-                <h3>{item.title}</h3>
-                <p className="pcd-desc">{item.shortDesc}</p>
+            {filtered.length === 0 ? (
+              <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '60px 20px', background: 'var(--navy-surface, #0B1120)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.08)' }}>
+                <h3 style={{ fontSize: '18px', color: '#FFFFFF', marginBottom: '8px' }}>
+                  Case Studies for {activeCategory}
+                </h3>
+                <p style={{ color: '#94A3B8', fontSize: '14px', maxWidth: '500px', margin: '0 auto 20px' }}>
+                  Our latest client case studies for {activeCategory} are available upon request. Connect with our team to receive relevant portfolio references.
+                </p>
+                <button className="btn-primary" onClick={() => onOpenConsultation && onOpenConsultation(`Inquiry for ${activeCategory} Portfolio`)}>
+                  Request {activeCategory} Portfolio
+                </button>
+              </div>
+            ) : (
+              filtered.map((item) => (
+                <article key={item.id} className="portfolio-card-detailed">
+                  <div className="pcd-meta-row">
+                    <span className="pcd-cat">{item.category}</span>
+                    <span className="pcd-industry">{item.industry}</span>
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p className="pcd-desc">{item.shortDesc}</p>
 
-                <div className="pcd-metric-badge">
-                  <TrendingUp size={15} className="text-cyan" />
-                  <strong>{item.metrics}</strong>
-                </div>
+                  <div className="pcd-metric-badge">
+                    <TrendingUp size={15} className="text-cyan" />
+                    <strong>{item.metrics}</strong>
+                  </div>
 
-                <div className="pcd-challenge-box">
-                  <strong>Challenge:</strong>
-                  <p>{item.challenge}</p>
-                </div>
+                  <div className="pcd-challenge-box">
+                    <strong>Challenge:</strong>
+                    <p>{item.challenge}</p>
+                  </div>
 
-                <div className="pcd-solution-box">
-                  <strong>Our Execution:</strong>
-                  <p>{item.solution}</p>
-                </div>
+                  <div className="pcd-solution-box">
+                    <strong>Our Execution:</strong>
+                    <p>{item.solution}</p>
+                  </div>
 
-                <div className="pcd-tags-row">
-                  {item.tags.map((t, idx) => (
-                    <span key={idx} className="pcd-tag">{t}</span>
-                  ))}
-                </div>
+                  <div className="pcd-tags-row">
+                    {item.tags.map((t, idx) => (
+                      <span key={idx} className="pcd-tag">{t}</span>
+                    ))}
+                  </div>
 
-                <div className="pcd-footer">
-                  <button className="btn-outline-blue w-full" onClick={() => setSelectedProject(item)}>
-                    View Full Case Details <ArrowUpRight size={15} />
-                  </button>
-                </div>
-              </article>
-            ))}
+                  <div className="pcd-footer">
+                    <button className="btn-outline-blue w-full" onClick={() => setSelectedProject(item)}>
+                      View Full Case Details <ArrowUpRight size={15} />
+                    </button>
+                  </div>
+                </article>
+              ))
+            )}
           </div>
 
           <div className="portfolio-cta-banner">

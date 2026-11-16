@@ -71,7 +71,7 @@ export function Footer() {
               </div>
               <div className="contact-item">
                 <Mail size={18} className="contact-icon text-cyan" />
-                <a href="mailto:info@swdigitalhub.com">info@swdigitalhub.com</a>
+                <a href="mailto:swdigitalhub25@gmail.com">swdigitalhub25@gmail.com</a>
               </div>
               <div className="contact-item">
                 <Globe size={18} className="contact-icon text-cyan" />
