@@ -58,7 +58,7 @@ const ventureDestinations = [
     title: 'SW Meritx',
     description: 'A focused destination for online mock examinations, practice sessions and performance insights.',
     tags: ['Mock Tests', 'Exams', 'Analytics'],
-    url: 'https://mertix-blond.vercel.app/',
+    url: 'https://learn.swdigitalhub.com/',
     icon: Target,
     ctaLabel: 'Explore business',
   },
